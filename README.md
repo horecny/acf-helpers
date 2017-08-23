@@ -20,3 +20,12 @@ Options::get('your_options_key', 'language_code');
 ```
 Options::get_default('your_options_key');
 ```
+
+## fields.php
+Load specific field values at onces (with one function call). Ideal when you don`t want to load all fields using get_fields() function.
+
+**Usage:**
+*1. Get values for specific set of custom fields*
+```
+$fields = get_custom_fields(['field1', 'field2']);
+```
