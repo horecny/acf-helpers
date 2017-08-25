@@ -35,11 +35,15 @@ Class Options {
 	 * @return mixed
 	 */
 	public static function get_default( $name ) {
-		add_filter( 'acf/settings/current_language', 'cl_acf_set_language', 100 );
+		add_filter( 'acf/settings/current_language', 'options_acf_set_language', 100 );
 		$option = get_field( $name, 'option' );
-		remove_filter( 'acf/settings/current_language', 'cl_acf_set_language', 100 );
+		remove_filter( 'acf/settings/current_language', 'options_acf_set_language', 100 );
 
 		return $option;
 	}
 
+}
+
+function options_acf_set_language() {
+	return acf_get_setting( 'default_language' );
 }
